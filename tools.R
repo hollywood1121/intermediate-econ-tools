@@ -1,3 +1,8 @@
+library(MASS)
+library(ggplot2)
+library(dplyr)
+
+library(tidyverse)
 ## make budget constraint calc that:
 # 2. reads in variables
 #goodX, qtyX, goodY, qtyY
@@ -13,7 +18,7 @@
 #find Zeros 
 
 budgetConstraint <- function(kind) {
-  library(MASS)
+  
   ##  if you only have prices and income
   if(kind == "pricesonly") {
     income <- as.double(readline(prompt="Enter income: "))
@@ -60,8 +65,21 @@ budgetConstraint <- function(kind) {
     
     #big paste: 
    cat(paste(maineq, set1and2, budgetconst, workfory, workfory2, workfory3, workfory4, sep = "\n"))
+   # Income = PriceX * QTYX + PriceY * QTYY
+   #test numbers are 50 = (1 * qtyx) + (5 * qtyy)
+   #graph it 
+   demand <- Hmisc::bezier(c(0, partialOne),
+                           c(zerosofY, 0)) %>%
+     as_data_frame()
+   
+   ggplot(mapping = aes(x = x, y = y)) +
+     xlab(labelx) + ylab(labely) +
+   geom_path(data = demand, color = "#FF4036", size = 1.5) +
+    theme_grey() +
+   coord_equal()
   }
   
-  # Income = PriceX * QTYX + PriceY * QTYY
-  #test numbers are 50 = (1 * qtyx) + (5 * qtyy)
+  
+  
+  
 }
