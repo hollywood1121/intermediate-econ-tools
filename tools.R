@@ -81,5 +81,74 @@ budgetConstraint <- function(kind) {
   
   
   
+  ??
+}
+
+#find price descrimination
+# r(q)  = r * q
+
+# Given:
+#  P = 3 - 0.02q
+
+eqp1 <- 3
+
+eqp2 <- -0.02
+
+# r(q)= 3q - 0.02q^2
+
+# First derivative is MR.
+# MR = 3 - 0.04q
+
+
+#bertrand equilibirum table
+# params are price, quantity and costs respectively. returns console output.
+bertrandeq <- function(p, q, c) {
+  profit <- (p - c) * q 
+  perfitperfirm <- profit/ 2
+  paste("Price:", p, "Quantity:", q, "| Cost:", c, "| Total Market Profit:", profit, "| Split profit per firm:", perfitperfirm  )
+}
+#bertrand reaction calc
+# takes in params from the inverse demand function.
+# this equation: P = a - b * (q1 + q2)
+# C = MC = costs associated.
+# find the revenue function first, then this.
+bertrandreaction <- function(a, b, c) {
+  finala <- ( (a - c) / (2*b) )
+  finalb <- ( (b) / (2*b) )
+  paste(finala, "-", finalb, "q")
+  
+  }
+
+#bertrand MRMC calc
+# takes in params from the inverse demand function.
+# this equation: P = a - b * (q1 + q2)
+# C = MC = costs associated.
+# find the revenue function first, then this.
+bertrandMrMc <- function(a, b, c) {
+  finala <- ( (a - c) / (2*b) )
+  finalb <- ( (b) / (2*b) )
+  mr <- paste(a, "-", (2*b), "q1 -", b, "q2   | MR equation"  )
+  last <- paste(finala, "-", finalb, "q2   |  Reaction function")
+  cat(paste(mr , last, sep = "\n" ))
   
 }
+# q is whether q1 or q2, limited to 2 firms.
+bertrandprofiteq <- function(a, b, c, q) {
+  # if its q1 else q2
+  if( q == 1) {
+    qfinal <- "q1"
+    qopp <- "q2"
+  }
+  else {
+    qfinal <- "q2"
+    qopp <- "q1"
+  }
+  
+  finala <- a
+  finalb <- (2*b )
+  finalc <- b
+  paste(finala, qfinal, "-", finalc, qfinal, "^2 -", finalc, qfinal, qopp)
+  
+}
+  
+
