@@ -2,6 +2,8 @@
 Tools designed to help intermediate micro/ macro computation
 tools.R shows the following functions:
 - budget constraints 
+- Bertrand competition equilibrium (Variations)
+-  Cobb douglas
+-  Cost Minimizing functions
+-  other homework specific functions
 
-## Budget Constraints
-this tool accepts a param of what you're trying to do, pass in "pricesonly" to run a computation to determine the budget constraints given the income, the labels of X and Y, and the prices only.
