@@ -81,7 +81,7 @@ budgetConstraint <- function(kind) {
   
   
   
-  ??
+  
 }
 
 #find price descrimination
@@ -119,7 +119,7 @@ bertrandreaction <- function(a, b, c) {
   
   }
 
-#bertrand MRMC calc
+#bertrand MRMC calc display MR equation and reaction function, all relative to Q1.
 # takes in params from the inverse demand function.
 # this equation: P = a - b * (q1 + q2)
 # C = MC = costs associated.
@@ -150,5 +150,129 @@ bertrandprofiteq <- function(a, b, c, q) {
   paste(finala, qfinal, "-", finalc, qfinal, "^2 -", finalc, qfinal, qopp)
   
 }
+# cobb douglas function that needs alpha, technology, capital and labor.
+
+cobbdouglassimple <- function() {
   
+  #labels to avoid paste issues. test vals are 1, .5, 100, 100
+  technology <- as.double(readline(prompt="Enter the A value: "))
+  alpha      <- as.double(readline(prompt="Enter the alpha value: "))
+  capital    <- as.double(readline(prompt="Enter the capital amount: "))
+  labor      <- as.double(readline(prompt="Enter the labor amount: "))
+  
+  
+  #find MPL, MPK, share of output to the respective factors
+  
+  # set up internal variables that are used.
+  alphaMinusOne  <-(alpha - 1)
+  oneMinusAlpha <- (1 - alpha)
+  negativeAlpha <- (alpha * -1)
+  
+  MPKvalue <- alpha * technology * capital^alphaMinusOne  * labor^oneMinusAlpha
+  MPKprintval <- paste("MPK, aka rental capital =", alpha, "*", technology, "*", capital, "^", alphaMinusOne , "*", labor, "^", oneMinusAlpha, "=====>", MPKvalue)
+  
+  #set up MPL
+  MPLvalue <- oneMinusAlpha * technology * capital^alpha * labor^negativeAlpha 
+  MPLprintval <- paste("MPL, aka wages = ", oneMinusAlpha, "*", technology, "*", capital, "^", alpha , "*", labor, "^", negativeAlpha, "=====>", MPLvalue )
+  
+  # share of output to the respective factors is determined by output * respective marginal product
+  # output * MPL = share of output for the labor sector
+  laborSharevalue <- labor * MPLvalue
+  laborShareprintval <- paste("Share of output respective to labor =", labor,"*", MPLvalue, "=======>", laborSharevalue)
+  
+  capitalSharevalue <- capital * MPKvalue
+  capitalShareprintval <- paste("Share of output respective to capital = ", capital,"*", MPKvalue, "=======>", capitalSharevalue)
+  
+  
+  #big paste: 
+  cat(paste(MPKprintval, MPLprintval, laborShareprintval, capitalShareprintval, sep = "\n"))
+  
+}
+# solves if you have all variables, eventually build out to handle multiple scenarios
+# uses wages, Labor, Rental Rate of Capital, and K for capital.
+costminimizing <- function() {
+  #labels to avoid paste issues. test vals are 1, .5, 100, 100
+  labor      <- as.double(readline(prompt="Enter (L) Labor amount: "))
+  wages      <- as.double(readline(prompt="Enter (w) wages amount: "))
+  capital    <- as.double(readline(prompt="Enter (K) capital amount: "))
+  rentalcap  <- as.double(readline(prompt="Enter (v) rental rate of capital: "))
+  qty        <- 
+  
+  #set up MPK
+  MPKvalue <- alpha * technology * capital^alphaMinusOne  * labor^oneMinusAlpha
+  MPKprintval <- paste("MPK, aka rental capital =", alpha, "*", technology, "*", capital, "^", alphaMinusOne , "*", labor, "^", oneMinusAlpha, "=====>", MPKvalue)
+  
+  #set up MPL
+  MPLvalue <- oneMinusAlpha * technology * capital^alpha * labor^negativeAlpha 
+  MPLprintval <- paste("MPL, aka wages = ", oneMinusAlpha, "*", technology, "*", capital, "^", alpha , "*", labor, "^", negativeAlpha, "=====>", MPLvalue )
+  
+}
+ 
+hw2fonevariantc <- function(q) {
+  ans <- ( (2 * q) / 500 ) + 100
+  output <- "TC = ( (2 * q) / 500 ) + 100 , "
+  atc = ans / q
+  paste(output, "q = ", q, ", TC = ", ans, ", AC = (TC/q) =  ", atc)
+}
+ 
+hw2fonevariant <- function(q) {
+  ans <- ( (3 * q) / 500 ) + 200
+  output <- "TC = ( (3 * q) / 500 ) + 200 , "
+  atc = ans / q
+  paste(output, "q = ", q, ", TC = ", ans, ", AC = (TC/q) =  ", atc)
+}
+
+hw2fone <- function(q) {
+  ans <- ( (3 * q) / 500 ) + 100
+  output <- "TC = ( (3 * q) / 500 ) + 100 , "
+  atc = ans / q
+  paste(output, "q = ", q, ", TC = ", ans, ", AC = (TC/q) =  ", atc)
+}
+
+hw2ftwo <- function(q) {
+  ans <-( 3 * q^2 ) / 2500  + 100
+  output <- "TC = ( 3 * q^2 ) / 2500  + 100, "
+  atc = ans / q
+  paste(output, "q = ", q, ", TC = ", ans, ", AC = (TC/q) =  ", atc)
+}
+
+hw2ftwovariant <- function(q) {
+  ans <-( 2 * q^2 ) / 2500  + 100
+  output <- "TC = ( 2 * q^2 ) / 2500  + 100, "
+  atc = ans / q
+  paste(output, "q = ", q, ", TC = ", ans, ", AC = (TC/q) =  ", atc)
+}
+
+# hw2ftwo test val if q = 1
+# 1/5 = .2
+# .2 ^2 = .04
+# .04 * 3 = .12
+# .12 / 100 = 0.0012
+# 0.0012 + 100 = 100.0012
+# TC = 100.0012
+#ATC = TC /q = 100.0012 / 1 = 100.0012
+q <- 25
+
+b <- c()
+d <- c()
+e <- c()
+f <- c()
+for (i in a) {
+       b[i] <- hw2ftwo(i)    
+}
+for (i in a) {
+ d[i] <- hw2fone(i)    
+}
+
+for (i in a) {
+  e[i] <- hw2fonevariant(i)    
+}
+
+for (i in a) {
+  f[i] <- hw2ftwovariant(i)    
+}
+
+for (i in a) {
+  e[i] <- hw2fonevariantc(i)    
+}
 
