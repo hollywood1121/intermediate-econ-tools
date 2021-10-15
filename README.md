@@ -6,3 +6,4 @@ R shows the following functions:
 - Cobb douglas
 - Cost Minimizing functions
 - other homework specific functions
+- econometric project (dynamic linear model)
