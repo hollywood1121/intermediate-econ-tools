@@ -275,4 +275,79 @@ for (i in a) {
 for (i in a) {
   e[i] <- hw2fonevariantc(i)    
 }
+# set prices as vector
+testvve <- c(30,25,20,15,10,5,4,0)
+mcsr1 <- function(vforVector){
+ 
+  price <- quantity <- atc <- c()
+  i <- 1
+  for (val in vforVector) {
+    pp <- val
+    q <- (pp - 4)/2
+    
+    if (q == 0) {
+      atcq <-  4 
+    } else {
+      atcq <- q + 4 + (16/q)
+    }
+    cat(paste("p =", pp, "," , q, "= q", atcq, "= ATC \n")) 
+    
+    #push into loops
+    price[i] <- pp
+    quantity[i] <-q
+    atc[i] <- atcq
+    i <- i + 1
+  }
+  cat("n=", length(vforVector))
+  pandq <- data.frame(
+    price,
+    quantity,
+    atc
+    
+  )
+  print(pandq)
+  write.csv(pandq,"C:\\Users\\nicka\\Desktop\\printdirectory\\ps3-3a.csv", row.names = FALSE)
+}
+
+findatcv <- c(13,10.5,8,5.5,3,0.5,0)
+
+findatc <- function(vforVector){
+  
+  #qs1
+ 
+  
+ 
+  
+  
+  
+  
+  price <- quantity <- c()
+  i <- 1
+  for (val in vforVector) {
+    
+    # set atc
+    if (val == 0) {
+      atc <-  4 
+    } else {
+      atc <- val + 4 + (16/val)
+    }
+    
+    
+   
+    cat(paste("p =", pp, "," , q, "= q \n")) 
+    
+    #push into loops
+    price[i] <- pp
+    quantity[i] <-q
+    i <- i + 1
+  }
+  cat("n=", length(vforVector))
+  pandq <- data.frame(
+    price,
+    quantity
+    
+  )
+  print(pandq)
+  write.csv(pandq,"C:\\Users\\nicka\\Desktop\\printdirectory\\ps3-3a.csv", row.names = FALSE)
+}
 
