@@ -306,7 +306,7 @@ mcsr1 <- function(vforVector){
     
   )
   print(pandq)
-  write.csv(pandq,"C:\\Users\\nicka\\Desktop\\printdirectory\\ps3-3a.csv", row.names = FALSE)
+  write.csv(pandq,"C:\\Users\\x\\Desktop\\x\\ps3-3a.csv", row.names = FALSE)
 }
 
 findatcv <- c(13,10.5,8,5.5,3,0.5,0)
