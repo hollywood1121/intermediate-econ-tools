@@ -348,6 +348,6 @@ findatc <- function(vforVector){
     
   )
   print(pandq)
-  write.csv(pandq,"C:\\Users\\nicka\\Desktop\\printdirectory\\ps3-3a.csv", row.names = FALSE)
+  write.csv(pandq,"C:\\Users\\x\\Desktop\\x\\ps3-3a.csv", row.names = FALSE)
 }
 
