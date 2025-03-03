@@ -24,7 +24,7 @@ library(spdep)
 library(lemon)
 library(kableExtra)
 library(qwraps2)
-setwd("C:\\Users\\nicka\\Desktop\\econ4650\\")
+setwd("C:\\Users\\x\\Desktop\\econ4650\\")
 
 #this is to remove scientific notation numbers.
 options(scipen=999)
@@ -34,7 +34,7 @@ options(scipen=999)
 
 
 #edit this to be where your xls file is, use the one i sent as it has all new updated sources
-prjectdata <- read_excel("C:\\Users\\nicka\\Desktop\\econ4650\\paper-sources\\Project_data_7.26.21.xls")
+prjectdata <- read_excel("C:\\Users\\x\\Desktop\\econ4650\\paper-sources\\Project_data_7.26.21.xls")
 prjectdata.tst <- prjectdata
 
 #make it easy to read variables for the summary. 
